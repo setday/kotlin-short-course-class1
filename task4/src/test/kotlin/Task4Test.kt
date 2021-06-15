@@ -26,7 +26,38 @@ internal class Task4Test {
             +++++
             +   +
             +++++
-        """.trimIndent(), stream.toString().trim())
+        """.trimIndent(), stream.toString().trimIndent())
+    }
+
+    @Test
+    fun testPrintFrame2() {
+        printFrame(5,3,'-')
+        assertEquals("""
+            -----
+            -   -
+            -----
+        """.trimIndent(), stream.toString().trimIndent())
+    }
+
+    @Test
+    fun testPrintFrame3() {
+        printFrame(2,2,'-')
+        assertEquals("""
+            --
+            --
+        """.trimIndent(), stream.toString().trimIndent())
+    }
+
+    @Test
+    fun testPrintFrame4() {
+        printFrame(3,5,'=')
+        assertEquals("""
+            ===
+            = =
+            = =
+            = =
+            ===
+        """.trimIndent(), stream.toString().trimIndent())
     }
 
 }

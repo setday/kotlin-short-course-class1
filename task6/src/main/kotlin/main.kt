@@ -14,21 +14,30 @@ fun<T> assertSameSizeOfMatrices(m1: Array<Array<T>>, m2: Array<Array<T>>) {
 
 fun<T> createMatrixOfSameSize(m: Array<Array<T>>, default: T): Array<Array<T>> {
     assertCorrectMatrixSize(m)
-    val res = m.clone()
-    for(row in res.indices)
-        for(col in res[row].indices)
+    val res = m.copyOf()
+    for(row in res.indices) {
+        res[row] = m[row].copyOf()
+        for (col in res[row].indices)
             res[row][col] = default
+    }
     return res
 }
 
 fun<T> printMatrix(m: Array<Array<T>>) {
-    TODO()
+    assertCorrectMatrixSize(m)
+    for(row in m.indices) {
+        for (col in m.indices)
+            print(m[row][col])
+        println()
+    }
 }
 
 fun sumOfMatrices(m1: Array<Array<Int>>, m2: Array<Array<Int>>): Array<Array<Int>> {
     assertSameSizeOfMatrices(m1, m2)
     val res = createMatrixOfSameSize(m1, 0)
-    TODO()
+    for(row in res.indices)
+        for(col in res[row].indices)
+            res[row][col] = m1[row][col] + m2[row][col]
     return res
 }
 

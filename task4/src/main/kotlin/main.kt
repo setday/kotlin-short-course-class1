@@ -16,7 +16,9 @@
  */
 
 fun printFrame(width: Int, height: Int, frameChar: Char = '*') {
-    TODO()
+    repeat(width) { print(frameChar) }; println()
+    repeat(height - 2) { print(frameChar); repeat(width - 2) { print(" ") }; println(frameChar) }
+    repeat(width) { print(frameChar) }; println()
 }
 
 fun main() {

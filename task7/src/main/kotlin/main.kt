@@ -10,21 +10,27 @@
 
  */
 
-val alphabetChars: String = "abcdefghijklmnopqrstuvwxyz"
-val morseChars = arrayOf(".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
+const val aC: String = "abcdefghijklmnopqrstuvwxyz"
+val mC = arrayOf(".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
     ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.",
     "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..")
 
 fun code(message: String): String {
-    TODO()
+    var ind = -1
+    var res = ""
+    for (c in message) { if (c in aC) { res += mC[aC.indexOf(c)] + " " } }
+    return res.slice(0..res.length - 2)
 }
 
 fun decode(message: String): String {
-    TODO()
+    var ind = -1
+    var res = ""
+    for (c in message.split(" ")) { if (c in mC) { res += aC[mC.indexOf(c)]} }
+    return res
 }
 
 fun main() {
-    val message = "hello"
+    val message = "hello world"
     val codedMessage = code(message)
     println(codedMessage)
     println(decode(codedMessage))

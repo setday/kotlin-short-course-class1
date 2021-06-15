@@ -10,10 +10,19 @@
         println(numbers[idx])
  */
 
-fun lastLocalMaxInd(numbers: Collection<Int>): Int {
-    TODO()
+fun lastLocalMaxInd(numbers: List<Int>): Int {
+    var a = -1
+
+    if (numbers.size < 2) { return a }
+
+    if (numbers[1] < numbers[0]) {a = 0}
+    for (ind in 1 until numbers.lastIndex)
+        if (numbers[ind - 1] < numbers[ind] && numbers[ind + 1] < numbers[ind]) {a = ind}
+    if (numbers[numbers.lastIndex - 1] < numbers[numbers.lastIndex]) {a = numbers.lastIndex}
+
+    return a
 }
 
 fun main(args: Array<String>) {
     println(lastLocalMaxInd(listOf(0,4,2,6,3,8,5,3)))
-}
+    }

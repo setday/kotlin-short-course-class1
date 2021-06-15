@@ -1,5 +1,6 @@
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertSame
 
 internal class Task6Test {
     @Test
@@ -14,7 +15,12 @@ internal class Task6Test {
             arrayOf(0,2,0),
             arrayOf(0,0,2)
         )
-        assertEquals(m2, sumOfMatrices(m1, m1))
+
+        val resm: Array<Array<Int>> = sumOfMatrices(m1, m1);
+
+        for(row in m2.indices)
+            for (col in m2.indices)
+                assert(resm[row][col] == m2[row][col])
     }
 
 }

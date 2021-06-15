@@ -9,22 +9,27 @@ class Task2Test {
 
     @Test
     fun min3Test2() {
-        TODO()
+        assertEquals(2, min3(2, 2, 2))
     }
 
     @Test
     fun min3Test3() {
-        TODO()
+        assertEquals(-10, min3(-10, 5, 0))
     }
 
     @Test
     fun min3Test4() {
-        TODO()
+        assertEquals(-15, min3(-10, -15, -10))
     }
 
     @Test
     fun min3Test5() {
-        TODO()
+        assertEquals(-10, min3(5, -10, 0))
+    }
+
+    @Test
+    fun min3Test6() {
+        assertEquals(-10, min3(0, 5, -10))
     }
 
 }

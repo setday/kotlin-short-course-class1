@@ -28,7 +28,13 @@ fun demoInput(args: Array<String>) {
  */
 
 fun computeSum(args: Array<String>) {
-    TODO()
+    var res = 0
+    if(args.isNotEmpty()) {
+        args.map { res += it.toInt() }
+    } else {
+        readLine()!!.split(" ").map { res += it.toInt() }
+    }
+    print(res)
 }
 
 fun main(args: Array<String>) {
